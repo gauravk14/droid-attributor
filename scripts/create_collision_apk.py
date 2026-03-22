@@ -11,8 +11,7 @@ print("[*] Reading original APK binary manifest...")
 with zipfile.ZipFile(src, 'r') as zin:
     manifest_data = bytearray(zin.read("AndroidManifest.xml"))
 
-# Find and replace package name in binary XML
-# Android binary XML stores strings in multiple encodings
+
 replacements = [
     # UTF-16 LE encoding
     ("com.insecureshop".encode('utf-16-le'),
@@ -25,7 +24,7 @@ replacements = [
 patched = False
 for old, new in replacements:
     if old in manifest_data:
-        # Pad or trim to same length
+       
         if len(new) < len(old):
             new = new + b'\x00' * (len(old) - len(new))
         elif len(new) > len(old):
@@ -40,7 +39,7 @@ if not patched:
     print("[-] Pattern not found — dumping first 200 bytes for inspection:")
     print(manifest_data[:200])
 else:
-    # Write new APK
+   
     with zipfile.ZipFile(src, 'r') as zin:
         with zipfile.ZipFile(dst, 'w', zipfile.ZIP_DEFLATED) as zout:
             for item in zin.infolist():
