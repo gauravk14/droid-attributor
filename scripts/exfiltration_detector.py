@@ -4,7 +4,7 @@ import json, os
 
 init(autoreset=True)
 
-# Known exfiltration patterns in decompiled code
+
 EXFIL_PATTERNS = {
     "HTTP POST to external": [
         "openConnection", "HttpURLConnection",
@@ -45,7 +45,7 @@ def detect_exfiltration(apk_path):
     findings = {}
     total_hits = 0
 
-    # Check network permissions first
+  
     perms = apk.get_permissions()
     has_network = any(p in perms for p in NETWORK_PERMISSIONS)
 
@@ -55,7 +55,7 @@ def detect_exfiltration(apk_path):
         print(Fore.GREEN + "\n[+] No network permission — cannot exfiltrate")
         return {}
 
-    # Deep scan all classes and methods
+    
     for category, patterns in EXFIL_PATTERNS.items():
         hits = []
         for cls in dx.get_classes():
@@ -86,8 +86,7 @@ def detect_exfiltration(apk_path):
             for h in hits[:3]:
                 print(f"    → {h}")
 
-    # Exfiltration chain detection
-    # Most dangerous: app handles intent AND has network calls
+   
     has_intent_handler = "Sensitive data access" in findings
     has_network_call = "HTTP POST to external" in findings or \
                        "Data being sent" in findings
@@ -121,7 +120,7 @@ def detect_exfiltration(apk_path):
 
     return result
 
-# Run on both APKs
+
 results = {}
 
 print(Fore.CYAN + "\n" + "="*55)
@@ -134,7 +133,6 @@ for apk_name in ["InsecureShop.apk", "evil_hijacker.apk"]:
         result = detect_exfiltration(path)
         results[apk_name] = result
 
-# Save results
 os.makedirs("reports", exist_ok=True)
 with open("reports/exfiltration_report.json", "w") as f:
     json.dump(results, f, indent=2)
