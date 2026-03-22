@@ -1,9 +1,9 @@
 import subprocess
 import os
 
-# Curated list of open-source vulnerable/research APKs
+
 APKS = [
-    # Deliberately vulnerable apps (legal to use)
+  
     ("https://github.com/dineshshetty/Android-InsecureBankv2/raw/master/InsecureBankv2.apk", "InsecureBankv2.apk"),
     ("https://github.com/OWASP/owasp-mastg/raw/master/Crackmes/Android/Level_01/UnCrackable-Level1.apk", "UnCrackable1.apk"),
     ("https://github.com/OWASP/owasp-mastg/raw/master/Crackmes/Android/Level_02/UnCrackable-Level2.apk", "UnCrackable2.apk"),
