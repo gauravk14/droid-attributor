@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:tag="layout/product_item_0" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView android:layout_gravity="center" android:id="@id/card_view" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/card_margin">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:id="@id/picture" android:layout_width="fill_parent" android:layout_height="@dimen/product_list_thumbnail" />
+            <TextView android:textSize="@dimen/list_product_name" android:textStyle="normal" android:textColor="@color/list_product_name" android:id="@id/prod_name" android:padding="@dimen/activity_margin_half" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/app_name" android:maxLines="2" android:lineSpacingExtra="2.0sp" android:fontFamily="sans-serif-medium" style="@style/Roboto.Bold.Medium" />
+            <TextView android:textStyle="normal" android:textColor="@color/lbl_secondary" android:id="@id/more_info" android:padding="@dimen/activity_margin_half" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="More Info" android:maxLines="2" android:lineSpacingExtra="2.0sp" android:fontFamily="sans-serif-medium" style="@style/Roboto.Medium.Small" />
+            <RelativeLayout android:paddingLeft="@dimen/activity_margin_half" android:paddingRight="@dimen/activity_margin_half" android:paddingBottom="@dimen/activity_margin_half" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="12.0sp" android:textStyle="normal" android:textColor="@color/list_products_price" android:id="@id/prod_price" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/app_name" android:layout_alignParentLeft="true" android:layout_centerInParent="true" android:lineSpacingExtra="2.0sp" android:fontFamily="sans-serif-medium" style="@style/Roboto.Medium.Medium" />
+                <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerInParent="true">
+                    <androidx.appcompat.widget.AppCompatImageView android:id="@id/ic_add" android:padding="5.0dip" android:layout_width="20.0dip" android:layout_height="20.0dip" android:src="@drawable/ic_plus" />
+                    <TextView android:textSize="@dimen/selected_product_count" android:textStyle="normal" android:textColor="@color/colorAccent" android:id="@id/product_count" android:paddingLeft="@dimen/activity_margin_half" android:paddingRight="@dimen/activity_margin_half" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    <androidx.appcompat.widget.AppCompatImageView android:id="@id/ic_remove" android:padding="5.0dip" android:layout_width="20.0dip" android:layout_height="20.0dip" android:src="@drawable/ic_minus" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
